@@ -1,5 +1,6 @@
 {
-  "posts": [{
+  "posts": [
+    {
       "id": 1,
       "title": "Post one",
       "body": "This is post one"
@@ -13,6 +14,11 @@
       "id": 3,
       "title": "Post three",
       "body": "This is post three "
+    },
+    {
+      "title": "New post",
+      "body": "Posting",
+      "id": 4
     }
   ]
 }
