@@ -48,17 +48,23 @@ class UI {
       this.clearAlert();
     }, 3000);
   }
-
+  // Clear alert message
   clearAlert() {
     const currentAlert = document.querySelector('.alert')
     if (currentAlert) {
       currentAlert.remove();
     }
   }
-
+  // Clear all fields
   clearFields() {
     this.titleInput = '';
     this.bodyInput = '';
+  }
+  // Fill form to edit
+  fillForm(data) {
+    this.titleInput.value = data.title;
+    this.bodyInput.value = data.body;
+    this.idInput.value = data.id;
   }
 }
 

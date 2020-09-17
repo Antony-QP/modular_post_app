@@ -14,6 +14,9 @@ document.querySelector('.post-submit').addEventListener('click', submitPost);
 // Event listener for delete
 document.querySelector('#posts').addEventListener('click', deletePost)
 
+// Event listener for edit state
+document.querySelector('#posts').addEventListener('click', enableEdit)
+
 function getPosts() {
   http.get('http://localhost:3000/posts')
     .then(data => ui.showPosts(data))
@@ -51,4 +54,24 @@ function deletePost(e) {
         .catch(err => console.log(err))
     }
   }
+}
+
+// Enable edit state
+function enableEdit(e) {
+  if (e.target.parentElement.classList.contains('edit')) {
+    const id = e.target.parentElement.dataset.id
+    const title = e.target.parentElement.previousElementSibling.previousElementSibling.textContent
+    const body = e.target.parentElement.previousElementSibling.textContent
+
+    const data = {
+      id,
+      title,
+      body
+    }
+
+    // Fill the from with the current post
+    ui.fillForm(data);
+  }
+
+  e.preventDefault()
 }
